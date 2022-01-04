@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!--suppress ALL -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>slider</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="slide-btn">
+        <i class="fa fa-angle-left prev"></i>
+        <div class="slide-inner">
+            <img src="1.jpg" alt="" class="active">
+            <img src="2.jpg" alt="">
+            <img src="3.jpg" alt="">
+        </div>
+        <i class="fa fa-angle-right next"></i>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $(".next").on('click', function () {
+            const currentImg = $(".active");
+            const nextImg = currentImg.next();
+            if (nextImg.length) {
+                currentImg.removeClass("active").css('z-index', -10);
+                nextImg.addClass("active").css('z-index', 10)
+            }
+        });
+        $(".prev").on('click', function () {
+            const currentImg = $(".active");
+            const prevImg = currentImg.prev();
+            if (prevImg.length) {
+                currentImg.removeClass("active").css('z-index', -10);
+                prevImg.addClass("active").css('z-index', 10)
+            }
+        })
+    })
+</script>
+</body>
+</html>
